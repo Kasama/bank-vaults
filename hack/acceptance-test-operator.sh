@@ -110,7 +110,7 @@ kubectl delete pvc --all
 
 # 6. test: Run the OIDC authenticated client test
 kubectl create namespace vswh # create the namespace beforehand, because we need the CA cert here as well
-kubectl create clusterrolebinding oidc-reviewer --clusterrole=system:service-account-issuer-discovery --group=system:unauthenticated
+# kubectl create clusterrolebinding oidc-reviewer --clusterrole=system:service-account-issuer-discovery --group=system:unauthenticated
 kubectl apply -f operator/deploy/cr-oidc.yaml
 kubectl wait --for=condition=healthy --timeout=120s vault/vault
 
